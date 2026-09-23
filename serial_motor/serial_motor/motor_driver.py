@@ -225,7 +225,7 @@ class MotorDriver(Node):
             self.encoder_pub_.publish(enc_msg)
 
             # Publish odometry based on encoder readings
-            # self.publish_odometry()
+            self.publish_odometry()
 
     def publish_odometry(self) -> None:
         """Publish odometry data based on encoder readings."""
