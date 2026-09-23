@@ -10,6 +10,7 @@ from launch.actions import OpaqueFunction
 
 def launch_setup(context, *args, **kwargs):
     
+    ####### DATA INPUT ##########
     robot_name = LaunchConfiguration("robot_name").perform(context)
     robot_file = LaunchConfiguration("robot_file").perform(context)
     robot_description_topic_name = "/" + robot_name + "_robot_description"
@@ -46,9 +47,8 @@ def launch_setup(context, *args, **kwargs):
 
 def generate_launch_description():
     robot_name_arg = DeclareLaunchArgument("robot_name", default_value="fastbot")
-    robot_file_arg = DeclareLaunchArgument("robot_file", default_value="robot.urdf")
+    robot_file_arg = DeclareLaunchArgument("robot_file", default_value="fastbot.xacro")
 
     return LaunchDescription(
 	[robot_name_arg, robot_file_arg, OpaqueFunction(function=launch_setup)]
     )
-
