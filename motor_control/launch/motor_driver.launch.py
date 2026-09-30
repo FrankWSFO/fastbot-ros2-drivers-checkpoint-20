@@ -20,7 +20,7 @@ def launch_setup(context, *args, **kwargs):
 	robot_name = LaunchConfiguration("robot_name")
 	serial_port = LaunchConfiguration("serial_port").perform(context)
 	baud_rate = int(LaunchConfiguration("baud_rate").perform(context))
-	loop_rate = int(LaunchConfiguration("loop_rate").perform(context))
+	loop_rate = float(LaunchConfiguration("loop_rate").perform(context))
 	encoder_cpr = int(LaunchConfiguration("encoder_cpr").perform(context))
 
 	# Define a ROS 2 Node for the motor driver with parameters such as the serial port and baud rate.
@@ -58,7 +58,7 @@ def generate_launch_description():
 	robot_name_arg = DeclareLaunchArgument("robot_name", default_value="fastbot_X")
 	serial_port_arg = DeclareLaunchArgument("serial_port", default_value="/dev/ttyACM0")
 	baud_rate_arg = DeclareLaunchArgument("baud_rate", default_value="57600")
-	loop_rate_arg = DeclareLaunchArgument("loop_rate", default_value="30")
+	loop_rate_arg = DeclareLaunchArgument("loop_rate", default_value="30.0")
 	encoder_cpr_arg = DeclareLaunchArgument("encoder_cpr", default_value="2500")
 
 	# Create a LaunchDescription with the argument and setup function.

@@ -6,7 +6,7 @@
     <arg name="robot_file" default="fastbot.xacro"/>
     <arg name="serial_port" default="/dev/ttyUSB0"/>
     <arg name="baud_rate" default="57600"/>
-    <arg name="loop_rate" default="30"/>
+    <arg name="loop_rate" default="30.0"/>
     <arg name="encoder_cpr" default="2550"/>
 
     <!-- Differential serial motor driver -->

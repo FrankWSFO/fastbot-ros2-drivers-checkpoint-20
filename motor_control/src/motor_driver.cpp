@@ -164,7 +164,7 @@ MotorDriver::MotorDriver(const rclcpp::NodeOptions & options)
   }
 
   this->declare_parameter<double>("loop_rate", 0.0);
-  loop_rate_ = this->get_parameter("loop_rate").as_double();
+  loop_rate_ = this->get_parameter("loop_rate")/*.as_int()*/.as_double();
   if (loop_rate_ == 0.0) {
     RCLCPP_ERROR(this->get_logger(), "Loop rate must be set to a non-zero value!");
     throw std::invalid_argument("Loop rate is required and must be non-zero.");
