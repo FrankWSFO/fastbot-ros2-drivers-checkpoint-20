@@ -365,7 +365,7 @@ void MotorDriver::check_encoders()
     enc_msg.mot_2_enc_val = last_m2_enc_;
     encoder_pub_->publish(enc_msg);
 
-    // publish_odometry();  // disabled -- mirrors the commented-out call in the Python node
+    publish_odometry();  // disabled by default -- mirrors the commented-out call in the Python node
   }
 }
 
