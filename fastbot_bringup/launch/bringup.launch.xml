@@ -24,13 +24,18 @@
 	<arg name="robot_file" value="$(var robot_file)"/>
     </include>
 
-    <!-- LSLiDAR ROS 2 driver -->
-    <include file="$(find-pkg-share lslidar_driver)/launch/lslidar_launch.py"/>
+    <group>
+        <!-- LSLiDAR ROS 2 driver -->
+        <set_remap from="scan" to="/fastbot/scan"/>
+        <set_remap from="image_raw" to="/fastbot_camera/image_raw"/>
+        <include file="$(find-pkg-share lslidar_driver)/launch/lslidar_launch.py"/>
 
-    <!-- v4l2 Camera ROS 2 driver -->
-    <!-- Raspberry Pi camera -->
-    <node pkg="v4l2_camera" exec="v4l2_camera_node" name="v4l2_camera_node" namespace="$(var robot_name)" output="screen">
-   	<param name="image_size" value="[320, 240]"/>
-    	<param name="camera_frame_id" value="$(var robot_name)_camera"/>
-    </node>
+        <!-- v4l2 Camera ROS 2 driver -->
+        <!-- Raspberry Pi camera -->
+        <node pkg="v4l2_camera" exec="v4l2_camera_node" name="v4l2_camera_node" namespace="$(var robot_name)" output="screen">
+            <param name="image_size" value="[320, 240]"/>
+            <param name="camera_frame_id" value="$(var robot_name)_camera"/>
+        </node>
+    </group>
+
 </launch>
