@@ -38,4 +38,6 @@
         </node>
     </group>
 
+  <node pkg="tf2_ros" exec="static_transform_publisher" name="laser_link_static_tf"
+      args="--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id $(var robot_name)_n10_v2 --child-frame-id laser_link"/>
 </launch>
