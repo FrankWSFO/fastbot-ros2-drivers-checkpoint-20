@@ -4,6 +4,7 @@
 	<robot name="fastbot" xmlns:xacro="http://ros.org/wiki/xacro">
 	
 	  <xacro:property name="PI" value="3.141592653589793" />
+	  <xacro:arg name="robot_name" default="fastbot"/>
 	  <xacro:macro name="fastbot_body" params="robot_name">
 	
 	    <!-- Link base_link -->
@@ -295,5 +296,5 @@
 	    </joint>
 	
 	  </xacro:macro>
-	
+	  <xacro:fastbot_body robot_name="$(arg robot_name)"/>	
 	</robot>
